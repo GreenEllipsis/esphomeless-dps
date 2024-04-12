@@ -98,7 +98,8 @@ void Dps::on_status_data_(const std::vector<uint8_t> &data) {
   // Byte   Address Content: Description                      Decoded content               Coeff./Unit
   //   0    0x0E 0x10        Voltage setting                  3600 * 0.01 = 36.00V          0.01 V
   float voltage_setting = dps_get_16bit(0) * 0.01f;
-  this->publish_state_(this->voltage_setting_sensor_, voltage_setting);
+  //FIXME this->publish_state_(this->voltage_setting_sensor_, voltage_setting);
+  this->publish_state_(this->voltage_setting_sensor_, 11.11);
   this->publish_state_(this->voltage_setting_number_, voltage_setting);
   //   2    0x03 0xE8        Current setting                  1000 * 0.01 = 10.00A          0.01 A
   float current_setting = dps_get_16bit(2) * this->current_resolution_factor();
