@@ -13,7 +13,7 @@ static const uint8_t FUNCTION_WRITE_MULTIPLE_REGISTERS = 0x10;
 
 static const uint8_t PROTECTION_STATUS_SIZE = 4;
 static const char *const PROTECTION_STATUS[PROTECTION_STATUS_SIZE] = {
-    "es Normal",        // 0x00
+    "nORMAL",        // 0x00
     "Over-Voltage",  // 0x01
     "Over-Current",  // 0x02
     "Over-Power",    // 0x03
