@@ -29,6 +29,7 @@ CONF_VOLTAGE_SETTING = "voltage_setting"
 CONF_CURRENT_SETTING = "current_setting"
 CONF_BACKLIGHT_BRIGHTNESS = "backlight_brightness"
 CONF_FIRMWARE_VERSION = "firmware_version"
+CONF_CV_END_CURRENT_SETTING = "cv_end_current_setting"
 
 ICON_BACKLIGHT_BRIGHTNESS = "mdi:brightness-6"
 
@@ -95,6 +96,13 @@ CONFIG_SCHEMA = DPS_COMPONENT_SCHEMA.extend(
             accuracy_decimals=1,
             device_class=DEVICE_CLASS_EMPTY,
             state_class=STATE_CLASS_MEASUREMENT,
+        cv.Optional(CONF_CV_END_CURRENT_SETTING): sensor.sensor_schema(
+            unit_of_measurement=UNIT_AMPERE,
+            accuracy_decimals=2,
+            device_class=DEVICE_CLASS_CURRENT,
+            state_class=STATE_CLASS_MEASUREMENT,
+        ),
+
         ),
     }
 )

@@ -26,10 +26,12 @@ DEFAULT_STEP = 1
 
 CONF_VOLTAGE_SETTING = "voltage_setting"
 CONF_CURRENT_SETTING = "current_setting"
+CONF_CV_END_CURRENT_SETTING = "cv_end_current_setting"
 
 NUMBERS = {
     CONF_VOLTAGE_SETTING: 0x0000,
     CONF_CURRENT_SETTING: 0x0001,
+    CONF_CV_END_CURRENT_SETTING: 0x0002,
 }
 
 DpsNumber = dps_ns.class_("DpsNumber", number.Number, cg.Component)
