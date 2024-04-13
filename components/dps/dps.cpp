@@ -13,7 +13,7 @@ static const uint8_t FUNCTION_WRITE_MULTIPLE_REGISTERS = 0x10;
 
 static const uint8_t PROTECTION_STATUS_SIZE = 4;
 static const char *const PROTECTION_STATUS[PROTECTION_STATUS_SIZE] = {
-    "nORMAL",        // 0x00
+    "T4 normal",        // 0x00
     "Over-Voltage",  // 0x01
     "Over-Current",  // 0x02
     "Over-Power",    // 0x03
@@ -99,11 +99,11 @@ void Dps::on_status_data_(const std::vector<uint8_t> &data) {
   //   0    0x0E 0x10        Voltage setting                  3600 * 0.01 = 36.00V          0.01 V
   float voltage_setting = dps_get_16bit(0) * 0.01f;
   //FIXME this->publish_state_(this->voltage_setting_sensor_, voltage_setting);
-  this->publish_state_(this->voltage_setting_sensor_, 11.11);
+  this->publish_state_(this->voltage_setting_sensor_, 1.23);
   this->publish_state_(this->voltage_setting_number_, voltage_setting);
   //   2    0x03 0xE8        Current setting                  1000 * 0.01 = 10.00A          0.01 A
   float current_setting = dps_get_16bit(2) * this->current_resolution_factor();
-  this->publish_state_(this->current_setting_sensor_, current_setting);
+  this->publish_state_(this->current_setting_sensor_, 456*this->current_resolution_factor());
   this->publish_state_(this->current_setting_number_, current_setting);
   //   4    0x0E 0x0E        Output voltage display value     3598 * 0.01 = 35.98V          0.01 V
   this->publish_state_(this->output_voltage_sensor_, (float) dps_get_16bit(4) * 0.01f);
