@@ -136,7 +136,7 @@ void Dps::on_status_data_(const std::vector<uint8_t> &data) {
   //  24    0x00 0x11        Firmware version                 17 * 0.1 = 1.7
   this->publish_state_(this->firmware_version_sensor_, dps_get_16bit(24) * 0.1f);
   // Unibat stuff
-  this->publish_state_(this->cv_end_current_setting_number_, this->cv_end_current_setting_number_); // we just reflect the value back. Is this necessary?
+  // this->publish_state_(this->cv_end_current_setting_number_, this->cv_end_current_setting_number_); // we just reflect the value back. Is this necessary?
 }
 
 void Dps::update() {
