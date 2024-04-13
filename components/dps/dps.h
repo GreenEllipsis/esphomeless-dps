@@ -56,6 +56,9 @@ class Dps : public PollingComponent, public modbus::ModbusDevice {
   void set_firmware_version_sensor(sensor::Sensor *firmware_version_sensor) {
     firmware_version_sensor_ = firmware_version_sensor;
   }
+  void set_cv_end_current_setting_sensor(sensor::Sensor *cv_end_current_setting_sensor) {
+    cv_end_current_setting_sensor_ = cv_end_current_setting_sensor;
+  }
 
   void set_output_switch(switch_::Switch *output_switch) { output_switch_ = output_switch; }
   void set_key_lock_switch(switch_::Switch *key_lock_switch) { key_lock_switch_ = key_lock_switch; }
@@ -109,6 +112,7 @@ class Dps : public PollingComponent, public modbus::ModbusDevice {
   sensor::Sensor *current_setting_sensor_;
   sensor::Sensor *backlight_brightness_sensor_;
   sensor::Sensor *firmware_version_sensor_;
+  sensor::Sensor *cv_end_current_setting_sensor_;
 
   switch_::Switch *output_switch_;
   switch_::Switch *key_lock_switch_;
