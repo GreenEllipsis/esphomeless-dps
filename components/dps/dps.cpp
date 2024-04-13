@@ -13,7 +13,7 @@ static const uint8_t FUNCTION_WRITE_MULTIPLE_REGISTERS = 0x10;
 
 static const uint8_t PROTECTION_STATUS_SIZE = 4;
 static const char *const PROTECTION_STATUS[PROTECTION_STATUS_SIZE] = {
-    "T9 normal",        // 0x00
+    "T10 normal",        // 0x00
     "Over-Voltage",  // 0x01
     "Over-Current",  // 0x02
     "Over-Power",    // 0x03
@@ -217,6 +217,7 @@ void Dps::dump_config() {  // NOLINT(google-readability-function-size,readabilit
   LOG_SENSOR("", "Current Setting", this->current_setting_sensor_);
   LOG_SENSOR("", "Backlight Brightness", this->backlight_brightness_sensor_);
   LOG_SENSOR("", "Firmware Version", this->firmware_version_sensor_);
+  LOG_SENSOR("", "Current Setting", this->cv_end_current_setting_sensor_);
   LOG_TEXT_SENSOR("", "Protection Status", this->protection_status_text_sensor_);
   LOG_TEXT_SENSOR("", "Device Model", this->device_model_text_sensor_);
 }
