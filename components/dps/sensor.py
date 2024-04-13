@@ -42,6 +42,7 @@ SENSORS = [
     CONF_CURRENT_SETTING,
     CONF_BACKLIGHT_BRIGHTNESS,
     CONF_FIRMWARE_VERSION,
+    CONF_CV_END_CURRENT_SETTING,
 ]
 
 # pylint: disable=too-many-function-args
