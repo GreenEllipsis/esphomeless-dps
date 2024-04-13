@@ -102,7 +102,7 @@ void Dps::on_status_data_(const std::vector<uint8_t> &data) {
   this->publish_state_(this->voltage_setting_number_, voltage_setting);
   //   2    0x03 0xE8        Current setting                  1000 * 0.01 = 10.00A          0.01 A
   float current_setting = dps_get_16bit(2) * this->current_resolution_factor();
-  this->publish_state_(this->current_setting_sensor_, current_setting->current_resolution_factor());
+  this->publish_state_(this->current_setting_sensor_, current_setting);
   this->publish_state_(this->current_setting_number_, current_setting);
   //   4    0x0E 0x0E        Output voltage display value     3598 * 0.01 = 35.98V          0.01 V
   this->publish_state_(this->output_voltage_sensor_, (float) dps_get_16bit(4) * 0.01f);
@@ -136,7 +136,7 @@ void Dps::on_status_data_(const std::vector<uint8_t> &data) {
   //  24    0x00 0x11        Firmware version                 17 * 0.1 = 1.7
   this->publish_state_(this->firmware_version_sensor_, dps_get_16bit(24) * 0.1f);
   // Unibat stuff
-  this->publish_state_(this->cv_end_current_setting_number_, cv_end_current_setting_number);
+//  this->publish_state_(this->cv_end_current_setting_number_, this->cv_end_current_setting_number_); // we just reflect the value back. Is this necessary?
 }
 
 void Dps::update() {

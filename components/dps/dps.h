@@ -66,6 +66,12 @@ class Dps : public PollingComponent, public modbus::ModbusDevice {
   void set_device_model_text_sensor(text_sensor::TextSensor *device_model_text_sensor) {
     device_model_text_sensor_ = device_model_text_sensor;
   }
+
+  // Unibat add-ons
+  void set_cv_end_current_setting_number(number::Number *cv_end_current_setting_number) {
+    cv_end_current_setting_number_ = cv_end_current_setting_number;
+  }
+
   void set_current_resolution(CurrentResolution current_resolution) { current_resolution_ = current_resolution; }
   void set_current_resolution_if_auto(CurrentResolution current_resolution) {
     if (this->current_resolution_ == DPS_CURRENT_RESOLUTION_AUTO) {
@@ -93,6 +99,7 @@ class Dps : public PollingComponent, public modbus::ModbusDevice {
 
   number::Number *voltage_setting_number_;
   number::Number *current_setting_number_;
+  number::Number *cv_end_current_setting_number_; // when current drops below this, stop charging
 
   sensor::Sensor *output_voltage_sensor_;
   sensor::Sensor *output_current_sensor_;
